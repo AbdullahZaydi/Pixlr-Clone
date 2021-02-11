@@ -1,0 +1,1776 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css" />
+
+    <link rel="stylesheet" href="index-below768px.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://kit.fontawesome.com/2c36b1428e.js" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/konva/7.2.2/konva.min.js" integrity="sha512-zbpQ5DaXc34MZEg81DJZSHALTkKr1+eOspsa01J4FSVqhUHjCa/V1xvur7imE4UZcj40uYDIR21MEpxzG2OHvw==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js" integrity="sha512-bLT0Qm9VnAYZDflyKcBaQ2gg0hSYNQrJ8RilYldYQ1FxQYoCLtUjuuRuZo+fjqhx/qtq/1itJ0C2ejDxltZVFg==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js" integrity="sha512-uto9mlQzrs59VwILcLiRYeLKPPbS/bT71da/OEBYEwcdNUk8jYIy+D176RYoop1Da+f9mvkYrmj5MCLZWEtQuA==" crossorigin="anonymous"></script>
+    <title>Image Tool</title>
+</head>
+
+<body>
+
+    <div class="container-fluid col-12">
+        <div class="row main">
+            <div class="effectDiv">
+                <div class="tabs">
+                    <div class="logo">
+                        <img src="./Images/logo.png" alt="">
+                    </div>
+                    <div class="logo mobile" id="openNavNav">
+                        <img src="./Images/logo.png" alt="">
+                    </div>
+                    <ul class="menu nav nav-tabs">
+                        <li>
+                            <div class="menu-item" onclick="addCropLayer()">
+                                <a data-toggle="tab" href="#one"><i class="fas fa-th-large"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="menu-item">
+                                <a data-toggle="tab" href="#drawing">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-brush-fill" viewBox="0 0 16 16">
+                                        <path d="M15.825.12a.5.5 0 0 1 .132.584c-1.53 3.43-4.743 8.17-7.095 10.64a6.067 6.067 0 0 1-2.373 1.534c-.018.227-.06.538-.16.868-.201.659-.667 1.479-1.708 1.74a8.117 8.117 0 0 1-3.078.132 3.658 3.658 0 0 1-.563-.135 1.382 1.382 0 0 1-.465-.247.714.714 0 0 1-.204-.288.622.622 0 0 1 .004-.443c.095-.245.316-.38.461-.452.393-.197.625-.453.867-.826.094-.144.184-.297.287-.472l.117-.198c.151-.255.326-.54.546-.848.528-.739 1.2-.925 1.746-.896.126.007.243.025.348.048.062-.172.142-.38.238-.608.261-.619.658-1.419 1.187-2.069 2.175-2.67 6.18-6.206 9.117-8.104a.5.5 0 0 1 .596.04z"/>
+                                    </svg>
+                                </a>
+                            </div>
+                        </li>
+                        <li class="active">
+                            <div class="menu-item">
+                                <a data-toggle="tab" href="#second"><i class="fas fa-image"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="menu-item">
+                                <a data-toggle="tab" href="#third"><i class="fas fa-text-width"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="menu-item">
+                                <a data-toggle="tab" href="#fourth"><i class="fas fa-chess-board"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="menu-item">
+                                <a data-toggle="tab" href="#fifth"><i class="fas fa-adjust"></i></a>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <ul class="menu mobile nav nav-tabs">
+                        <li>
+                            <div class="menu-item" onclick="addCropLayer()">
+                                <a data-toggle="tab" href="#onee"><i class="fas fa-th-large"></i></a>
+                            </div>
+                        </li>
+                        <li class="active">
+                            <div class="menu-item">
+                                <a data-toggle="tab" href="#secondd"><i class="fas fa-image"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="menu-item">
+                                <a data-toggle="tab" href="#thirdd"><i class="fas fa-text-width"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="menu-item">
+                                <a data-toggle="tab" href="#fourthh"><i class="fas fa-chess-board"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="menu-item">
+                                <a data-toggle="tab" href="#fifthh"><i class="fas fa-adjust"></i></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="menu-item">
+                                <a data-toggle="tab" href="#sixthh"><i class="fas fa-layer-group"></i></a>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="closeIcon">
+                        <div class="closeIconTop">
+                            <i class="far fa-times-circle"></i>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="edit tab-content">
+                    <div id="one" class="tab-pane fade">
+                        <div class="contentDiv">
+                            <h3>Custom size</h3>
+                            <div class="widthHeight">
+                                <input type="text" id="width">
+                                <span>x</span>
+                                <input type="text" id="height" class="">
+                                <input type="button" class="button"  onclick="SetSize()" value="Change">
+                            </div>
+                            <div class="splitter"></div>
+                            <h3>Shape Crop</h3>
+                            <div class="widthHeight">
+                                <div class="eraseButtonDiv">
+                                    <button class="startFour" onclick="squareCrop()" style="margin-left: 10px;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-square" viewBox="0 0 16 16">
+                                            <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                        </svg>
+                                    </button>
+                                    <button class="startFour" onclick="circleCrop()" style="margin-left: 10px;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-circle" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                        </svg>
+                                    </button>
+                                    <button class="startFour" onclick="invertY()" style="margin-left: 10px;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                            <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                        </svg>
+                                    </button>
+                                    <button class="startFour" onclick="invertY()" style="margin-left: 10px;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                            <path d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                                        </svg>
+                                    </button>
+                                    <button class="startFour" onclick="invertY()" style="margin-left: 10px;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                                            <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="splitter"></div>
+                            <h3>Common Sizes</h3>
+
+                            <div class="template-item" onclick="setStageSize(851, 315)">
+                                <div class="template-image">
+                                    <img src="./Images/first.svg">
+                                </div>
+                                <span>Facebook Cover</span>
+                                <span>851x315</span>
+                            </div>
+
+                            <div class="template-item" onclick="setStageSize(940, 788)">
+                                <div class="template-image">
+                                    <img src="./Images/second.svg">
+                                </div>
+                                <span>Facebook Wall Post</span>
+                                <span>940x788</span>
+                            </div>
+
+                            <div class="template-item" onclick="setStageSize(564, 1200)">
+                                <div class="template-image">
+                                    <img src="./Images/third.svg">
+                                </div>
+                                <span>Pinterest Tall Post</span>
+                                <span>564x1200</span>
+                            </div>
+
+
+                            <div class="template-item" onclick="setStageSize(1080, 1080)">
+                                <div class="template-image">
+                                    <img src="./Images/fourth.svg">
+                                </div>
+                                <span>Instagram Post</span>
+                                <span>1080x1080</span>
+                            </div>
+
+                            <div class="template-item" onclick="setStageSize(2000, 2000)">
+                                <div class="template-image">
+                                    <img src="./Images/fifth.svg">
+                                </div>
+                                <span>Shopify Product</span>
+                                <span>2000x2000</span>
+                            </div>
+
+                            <div class="template-item" onclick="setStageSize(1920, 1080)">
+                                <div class="template-image">
+                                    <img src="./Images/fifth.svg">
+                                </div>
+                                <span>Shopify Banner</span>
+                                <span>1920x1080</span>
+                            </div>
+
+                            <div class="widthHeight">
+                                <input type="button" class="button" onclick="crop()" value="Apply">
+                            </div>
+                        </div>
+
+                        <div class="buttonDiv">
+                            <button  onclick="SaveImage()">Download Image</button>
+                        </div>
+                    </div>
+                    
+                    <div id="drawing" class="tab-pane fade">
+                        <div class="contentDiv">
+                            <h3>Shape Crop</h3>
+                            <div class="widthHeight">
+                                <div class="eraseButtonDiv">
+                                    <button class="startFour" onclick="prepareDrawSquare()" style="margin-left: 10px;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-square" viewBox="0 0 16 16">
+                                            <path d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"/>
+                                        </svg>
+                                    </button>
+                                    <button class="startFour" onclick="prepareDrawCircle()" style="margin-left: 10px;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-circle" viewBox="0 0 16 16">
+                                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/>
+                                        </svg>
+                                    </button>
+                                    <button class="startFour" onclick="prepareDrawTriangle()" style="margin-left: 10px;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-triangle" viewBox="0 0 16 16">
+                                            <path d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.146.146 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.163.163 0 0 1-.054.06.116.116 0 0 1-.066.017H1.146a.115.115 0 0 1-.066-.017.163.163 0 0 1-.054-.06.176.176 0 0 1 .002-.183L7.884 2.073a.147.147 0 0 1 .054-.057zm1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566z"/>
+                                        </svg>
+                                    </button>
+                                    <button class="startFour" onclick="prepareFreeDrawing()" style="margin-left: 10px;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-brush" viewBox="0 0 16 16">
+                                            <path d="M15.825.12a.5.5 0 0 1 .132.584c-1.53 3.43-4.743 8.17-7.095 10.64a6.067 6.067 0 0 1-2.373 1.534c-.018.227-.06.538-.16.868-.201.659-.667 1.479-1.708 1.74a8.117 8.117 0 0 1-3.078.132 3.658 3.658 0 0 1-.563-.135 1.382 1.382 0 0 1-.465-.247.714.714 0 0 1-.204-.288.622.622 0 0 1 .004-.443c.095-.245.316-.38.461-.452.393-.197.625-.453.867-.826.094-.144.184-.297.287-.472l.117-.198c.151-.255.326-.54.546-.848.528-.739 1.2-.925 1.746-.896.126.007.243.025.348.048.062-.172.142-.38.238-.608.261-.619.658-1.419 1.187-2.069 2.175-2.67 6.18-6.206 9.117-8.104a.5.5 0 0 1 .596.04zM4.705 11.912a1.23 1.23 0 0 0-.419-.1c-.247-.013-.574.05-.88.479a11.01 11.01 0 0 0-.5.777l-.104.177c-.107.181-.213.362-.32.528-.206.317-.438.61-.76.861a7.127 7.127 0 0 0 2.657-.12c.559-.139.843-.569.993-1.06a3.121 3.121 0 0 0 .126-.75l-.793-.792zm1.44.026c.12-.04.277-.1.458-.183a5.068 5.068 0 0 0 1.535-1.1c1.9-1.996 4.412-5.57 6.052-8.631-2.591 1.927-5.566 4.66-7.302 6.792-.442.543-.796 1.243-1.042 1.826a11.507 11.507 0 0 0-.276.721l.575.575zm-4.973 3.04l.007-.005a.031.031 0 0 1-.007.004zm3.582-3.043l.002.001h-.002z"/>
+                                          </svg>
+                                    </button>
+                                    <button class="startFour" onclick="invertY()" style="margin-left: 10px;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-heart" viewBox="0 0 16 16">
+                                            <path d="M8 2.748l-.717-.737C5.6.281 2.514.878 1.4 3.053c-.523 1.023-.641 2.5.314 4.385.92 1.815 2.834 3.989 6.286 6.357 3.452-2.368 5.365-4.542 6.286-6.357.955-1.886.838-3.362.314-4.385C13.486.878 10.4.28 8.717 2.01L8 2.748zM8 15C-7.333 4.868 3.279-3.04 7.824 1.143c.06.055.119.112.176.171a3.12 3.12 0 0 1 .176-.17C12.72-3.042 23.333 4.867 8 15z"/>
+                                        </svg>
+                                    </button>
+                                    <button class="startFour" onclick="prepareDrawStar()" style="margin-left: 10px;">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-star" viewBox="0 0 16 16">
+                                            <path d="M2.866 14.85c-.078.444.36.791.746.593l4.39-2.256 4.389 2.256c.386.198.824-.149.746-.592l-.83-4.73 3.523-3.356c.329-.314.158-.888-.283-.95l-4.898-.696L8.465.792a.513.513 0 0 0-.927 0L5.354 5.12l-4.898.696c-.441.062-.612.636-.283.95l3.523 3.356-.83 4.73zm4.905-2.767l-3.686 1.894.694-3.957a.565.565 0 0 0-.163-.505L1.71 6.745l4.052-.576a.525.525 0 0 0 .393-.288l1.847-3.658 1.846 3.658a.525.525 0 0 0 .393.288l4.052.575-2.906 2.77a.564.564 0 0 0-.163.506l.694 3.957-3.686-1.894a.503.503 0 0 0-.461 0z"/>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="splitter"></div>
+                            <h3>Brush Size</h3>
+                            <div class="rme-range-slider">
+                                <div class="rangeTitle">
+                                    <span class="rme-control-value" id="brushSizeTxt"></span>
+                                </div>
+                                <input class="rme-range-slider__range" type="range" min="4" max="40" step="4" value="0" oninput="StrokeSizeChanged(this.value)">
+                            </div>
+                            <div class="splitter"></div>
+                            <h3>Fill</h3>
+
+                            <div class="template-item" onclick="setStageSize(851, 315)">
+                                <div class="color-picker">
+                                    <div class="color-picker--control">
+                                        <div class="color-picker--icon">
+                                            <div class="pointer color-picker--color" id="shapeColor"
+                                                style="background-color: rgb(0, 0, 0); height: 100%;">
+                                                <input type="color" name="" id="" oninput="shapeColorChanged(this.value)">
+                                            </div>
+                                        </div>
+                                        <span id="shapeColorTxt">#000</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="buttonDiv">
+                            <button  onclick="SaveImage()">Download Image</button>
+                        </div>
+                    </div>
+
+
+                    <div id="second" class="tab-pane fade in active">
+                        <div class="contentDiv">
+                            <div class="imageViewSmall">
+                                <img id="showCutOut2" alt="AI produced Cut Out">
+                            </div>
+                            <div class="splitter"></div>
+
+                            <div class="eraseButtonDiv">
+                                <button class="startFour" onclick="invertX()" style="margin-bottom: 10px;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-braces" viewBox="0 0 16 16">
+                                        <path
+                                            d="M2.114 8.063V7.9c1.005-.102 1.497-.615 1.497-1.6V4.503c0-1.094.39-1.538 1.354-1.538h.273V2h-.376C3.25 2 2.49 2.759 2.49 4.352v1.524c0 1.094-.376 1.456-1.49 1.456v1.299c1.114 0 1.49.362 1.49 1.456v1.524c0 1.593.759 2.352 2.372 2.352h.376v-.964h-.273c-.964 0-1.354-.444-1.354-1.538V9.663c0-.984-.492-1.497-1.497-1.6zM13.886 7.9v.163c-1.005.103-1.497.616-1.497 1.6v1.798c0 1.094-.39 1.538-1.354 1.538h-.273v.964h.376c1.613 0 2.372-.759 2.372-2.352v-1.524c0-1.094.376-1.456 1.49-1.456V7.332c-1.114 0-1.49-.362-1.49-1.456V4.352C13.51 2.759 12.75 2 11.138 2h-.376v.964h.273c.964 0 1.354.444 1.354 1.538V6.3c0 .984.492 1.497 1.497 1.6z" />
+                                    </svg>
+                                </button>
+                                <button class="startFour" onclick="invertY()" style="margin-bottom: 10px;">
+                                    <svg style="transform: rotate(90deg);" xmlns="http://www.w3.org/2000/svg" width="16"
+                                        height="16" fill="currentColor" class="bi bi-braces" viewBox="0 0 16 16">
+                                        <path
+                                            d="M2.114 8.063V7.9c1.005-.102 1.497-.615 1.497-1.6V4.503c0-1.094.39-1.538 1.354-1.538h.273V2h-.376C3.25 2 2.49 2.759 2.49 4.352v1.524c0 1.094-.376 1.456-1.49 1.456v1.299c1.114 0 1.49.362 1.49 1.456v1.524c0 1.593.759 2.352 2.372 2.352h.376v-.964h-.273c-.964 0-1.354-.444-1.354-1.538V9.663c0-.984-.492-1.497-1.497-1.6zM13.886 7.9v.163c-1.005.103-1.497.616-1.497 1.6v1.798c0 1.094-.39 1.538-1.354 1.538h-.273v.964h.376c1.613 0 2.372-.759 2.372-2.352v-1.524c0-1.094.376-1.456 1.49-1.456V7.332c-1.114 0-1.49-.362-1.49-1.456V4.352C13.51 2.759 12.75 2 11.138 2h-.376v.964h.273c.964 0 1.354.444 1.354 1.538V6.3c0 .984.492 1.497 1.497 1.6z" />
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <div class="splitter"></div>
+
+                            <div class="">
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Alpha</span>
+                                        <span class="rme-control-value" id="alpha-val"></span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="alpha" type="range" min="0" max="1" step="0.05" value="0">
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Red</span>
+                                        <span class="rme-control-value" id="red-val"></span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="red" type="range" min="0" max="256" step="1" value="150">
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Green</span>
+                                        <span class="rme-control-value" id="green-val"></span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="green" type="range" min="0" max="256" step="1" value="150">                            
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Blue</span>
+                                        <span class="rme-control-value" id="blue-val"></span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="blue" type="range" min="0" max="256" step="1" value="150">
+                                </div>
+                                <div class="splitter"></div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Brightness</span>
+                                        <span class="rme-control-value" id="brightness-val"></span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="brightness" type="range" min="-0.5" max=".5" step="0.01" value="0">
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Enhance</span>
+                                        <span class="rme-control-value" id="enhance-val"></span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="enhance" type="range" min="0" max="1" step="0.01" value="0">
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Cartoonize</span>
+                                        <span class="rme-control-value" id="levels-val"></span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="levels" type="range" min="0" max="1" step="0.01" value="1">
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Luminance</span>
+                                        <span class="rme-control-value" id="luminance-val"></span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="luminance" type="range" min="-0.5" max=".5" step="0.01" value="0">
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Saturation</span>
+                                        <span class="rme-control-value" id="saturation-val"></span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="saturation" type="range" min="-1" max="1" step="0.01" value="0">
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Exposure</span>
+                                        <span class="rme-control-value" id="value-val"></span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="value" type="range" min="-1" max="1" step="0.01" value="0">
+                                </div>
+                                <div class="splitter"></div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Hue</span>
+                                        <span class="rme-control-value" id="hue-val"></span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="hue" type="range" min="0" max="359" step="1" value="0">
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Blur</span>
+                                        <span class="rme-control-value" id="blurRadius-val"></span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="blurRadius" type="range" min="0" max="20" step=".5" value="0">
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Noise</span>
+                                        <span class="rme-control-value" id="noise-val"></span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="noise" type="range" min="0" max="2" step="0.01" value="0">
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Pixelate</span>
+                                        <span class="rme-control-value" id="pixelSize-val"></span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="pixelSize" type="range" min=".1" max="10" step="0.1" value=".1">
+                                </div>
+                            </div>
+    
+
+                            <div class="splitter"></div>
+                        </div>
+
+                        <div class="buttonDiv">
+                            <button onclick="SaveImage()">Download Image</button>
+                        </div>
+                    </div>
+
+                    <div id="third" class="tab-pane fade">
+                        <div class="contentDiv">
+                            <div class="text-item" onclick="addText(40)">
+                                <h2>Add HEADER</h2>
+                            </div>
+                            <div class="text-item" onclick="addText(25)">
+                                <h4>Add SUB HEADER</h4>
+                            </div>
+                            <div class="text-item" onclick="addText(20)">
+                                <p>Add body text</p>
+                            </div>
+
+                            <div class="splitter"></div>
+
+                            <div class="eraseButtonDiv">
+                                <button class="startFour" onclick="invertX()" style="margin-bottom: 10px;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-braces" viewBox="0 0 16 16">
+                                        <path
+                                            d="M2.114 8.063V7.9c1.005-.102 1.497-.615 1.497-1.6V4.503c0-1.094.39-1.538 1.354-1.538h.273V2h-.376C3.25 2 2.49 2.759 2.49 4.352v1.524c0 1.094-.376 1.456-1.49 1.456v1.299c1.114 0 1.49.362 1.49 1.456v1.524c0 1.593.759 2.352 2.372 2.352h.376v-.964h-.273c-.964 0-1.354-.444-1.354-1.538V9.663c0-.984-.492-1.497-1.497-1.6zM13.886 7.9v.163c-1.005.103-1.497.616-1.497 1.6v1.798c0 1.094-.39 1.538-1.354 1.538h-.273v.964h.376c1.613 0 2.372-.759 2.372-2.352v-1.524c0-1.094.376-1.456 1.49-1.456V7.332c-1.114 0-1.49-.362-1.49-1.456V4.352C13.51 2.759 12.75 2 11.138 2h-.376v.964h.273c.964 0 1.354.444 1.354 1.538V6.3c0 .984.492 1.497 1.497 1.6z" />
+                                    </svg>
+                                </button>
+                                <button class="startFour deleteButton" onclick="destroyNode()" style="margin-bottom: 10px;">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                        class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                        <path
+                                            d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <div class="splitter"></div>
+
+                            <div class="rme-text-control rme-control-disabled">
+                                <div class="rme-text-control--font-color" style="text-align: left;">
+                                    <span
+                                        style="text-align: left; font-family: Roboto, sans-serif; font-size: 12px; line-height: 1.8;">Text Color</span>
+                                    <div class="color-picker">
+                                        <div class="color-picker--control">
+                                            <div class="color-picker--icon">
+                                                <div class="pointer color-picker--color"
+                                                    style="background-color: rgb(0, 0, 0); height: 100%;">
+                                                    <input type="color" name="" id="" oninput="textColorChanged(this)">
+                                                </div>
+                                            </div>
+                                            <span id="textColor">#000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="splitter"></div>
+                                <div class="rme-text-control--font-family text-left">
+                                    <h3>Font</h3>
+                                    <select class="scaleSelect" id="font-dropdown-2" onchange="triggerChangeFont(this)">
+                                        <option value="Arial" style="font-family: Arial;">Arial</option>
+                                        <option value="Time New Roman" style="font-family: &quot;Time New Roman&quot;;">
+                                            Time New Roman</option>
+                                        <option value="Abril Fatface" style="font-family: &quot;Abril Fatface&quot;;">
+                                            Abril Fatface</option>
+                                        <option value="Alegreya" style="font-family: Alegreya;">Alegreya</option>
+                                        <option value="Archivo" style="font-family: Archivo;">Archivo</option>
+                                        <option value="Arvo" style="font-family: Arvo;">Arvo</option>
+                                        <option value="B612" style="font-family: B612;">B612</option>
+                                        <option value="Bangers" style="font-family: Bangers;">Bangers</option>
+                                        <option value="BioRhyme" style="font-family: BioRhyme;">BioRhyme</option>
+                                        <option value="Bungee Shade" style="font-family: &quot;Bungee Shade&quot;;">
+                                            Bungee Shade</option>
+                                        <option value="Cairo" style="font-family: Cairo;">Cairo</option>
+                                        <option value="Cardo" style="font-family: Cardo;">Cardo</option>
+                                        <option value="Comic Neue" style="font-family: &quot;Comic Neue&quot;;">Comic
+                                            Neue</option>
+                                        <option value="Concert One" style="font-family: &quot;Concert One&quot;;">
+                                            Concert One</option>
+                                        <option value="Cormorant" style="font-family: Cormorant;">Cormorant</option>
+                                        <option value="Crimson Text" style="font-family: &quot;Crimson Text&quot;;">
+                                            Crimson Text</option>
+                                        <option value="EB Garamond" style="font-family: &quot;EB Garamond&quot;;">EB
+                                            Garamond</option>
+                                        <option value="Exo 2">Exo 2</option>
+                                        <option value="Fira Sans" style="font-family: &quot;Fira Sans&quot;;">Fira Sans
+                                        </option>
+                                        <option value="Fjalla One" style="font-family: &quot;Fjalla One&quot;;">Fjalla
+                                            One</option>
+                                        <option value="Frank Ruhl Libre"
+                                            style="font-family: &quot;Frank Ruhl Libre&quot;;">Frank Ruhl Libre</option>
+                                        <option value="IBM Plex Serif" style="font-family: &quot;IBM Plex Serif&quot;;">
+                                            IBM Plex Serif</option>
+                                        <option value="Karla" style="font-family: Karla;">Karla</option>
+                                        <option value="Lato" style="font-family: Lato;">Lato</option>
+                                        <option value="Lora" style="font-family: Lora;">Lora</option>
+                                        <option value="Merriweather" style="font-family: Merriweather;">Merriweather
+                                        </option>
+                                        <option value="Montserrat" style="font-family: Montserrat;">Montserrat</option>
+                                        <option value="Noto Sans" style="font-family: &quot;Noto Sans&quot;;">Noto Sans
+                                        </option>
+                                        <option value="Nunito" style="font-family: Nunito;">Nunito</option>
+                                        <option value="Old Standard TT"
+                                            style="font-family: &quot;Old Standard TT&quot;;">Old Standard TT</option>
+                                        <option value="Open Sans" style="font-family: &quot;Open Sans&quot;;">Open Sans
+                                        </option>
+                                        <option value="Oswald" style="font-family: Oswald;">Oswald</option>
+                                        <option value="Oxygen" style="font-family: Oxygen;">Oxygen</option>
+                                        <option value="Playfair Display"
+                                            style="font-family: &quot;Playfair Display&quot;;">Playfair Display</option>
+                                        <option value="Poppins" style="font-family: Poppins;">Poppins</option>
+                                        <option value="PT Sans" style="font-family: &quot;PT Sans&quot;;">PT Sans
+                                        </option>
+                                        <option value="PT Serif" style="font-family: &quot;PT Serif&quot;;">PT Serif
+                                        </option>
+                                        <option value="Rakkas" style="font-family: Rakkas;">Rakkas</option>
+                                        <option value="Roboto" style="font-family: Roboto;">Roboto</option>
+                                        <option value="Rubik" style="font-family: Rubik;">Rubik</option>
+                                        <option value="Rubik Mono One" style="font-family: &quot;Rubik Mono One&quot;;">
+                                            Rubik Mono One</option>
+                                        <option value="Ruluko" style="font-family: Ruluko;">Ruluko</option>
+                                        <option value="Source Sans Pro"
+                                            style="font-family: &quot;Source Sans Pro&quot;;">Source Sans Pro</option>
+                                        <option value="Spectral" style="font-family: Spectral;">Spectral</option>
+                                        <option value="Titillium Web" style="font-family: &quot;Titillium Web&quot;;">
+                                            Titillium Web</option>
+                                        <option value="Ubuntu" style="font-family: Ubuntu;">Ubuntu</option>
+                                        <option value="Varela" style="font-family: Varela;">Varela</option>
+                                        <option value="Vollkorn" style="font-family: Vollkorn;">Vollkorn</option>
+                                        <option value="Work Sans" style="font-family: &quot;Work Sans&quot;;">Work Sans
+                                        </option>
+                                        <option value="Yatra One" style="font-family: &quot;Yatra One&quot;;">Yatra One
+                                        </option>
+                                    </select>
+                                </div>
+                                <div class="fontStyleDiv">
+                                    <div class="fontStyleDiv1">
+                                        <i class="fa fa-bold" id="bold" onclick="changeStyle(this,'bold')"></i>
+                                        <i class="fa fa-italic" id="italic"   onclick="changeStyle(this,'italic')"></i>
+                                        <i class="fa fa-underline" onclick="changeStyle(this,'underline')"></i>
+                                    </div>
+                                    <div class="fontStyleDiv2">
+                                        <i class="fa fa-align-left" onclick="changeAlign(this,'left')"></i>
+                                        <i class="fa fa-align-center" onclick="changeAlign(this,'center')"></i>
+                                        <i class="fa fa-align-right" onclick="changeAlign(this,'right')"></i>
+                                    </div>
+                                </div>
+                                <div class="splitter"></div>
+                                <label class="rme-checkbox-container">
+                                    <input class="form-check-input" type="checkbox" id="flexCheckDefault" onclick="isShadowEnabled(this)">
+                                    <label class="form-check-label" for="flexCheckDefault">
+                                        Shadow
+                                    </label>
+                                </label>
+                                <div class="rme-text-control--font-color" style="text-align: left;">
+                                    <span
+                                        style="text-align: left; font-family: Roboto, sans-serif; font-size: 12px; line-height: 1.8;">Shadow Color</span>
+                                    <div class="color-picker">
+                                        <div class="color-picker--control">
+                                            <div class="color-picker--icon">
+                                                <div class="pointer color-picker--color"
+                                                    style="background-color: rgb(0, 0, 0); height: 100%;">
+                                                    <input type="color" name="" id="" oninput="shadowColorChanged(this)">
+                                                </div>
+                                            </div>
+                                            <span>#000</span>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Blur</span>
+                                        <span class="rme-control-value">3</span>
+                                    </div>
+                                    <input class="rme-range-slider__range" type="range" min="0" max="40" step="1"
+                                        value="3" oninput="shadowBlurChanged(this)">
+                                </div>
+
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Opacity</span>
+                                        <span class="rme-control-value">0.5</span>
+                                    </div>
+                                    <input class="rme-range-slider__range" type="range" min="0.1" max="1" step="0.1"
+                                        value="0.5" oninput="shadowOpacityChanged(this)">
+                                </div>
+
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Offset X</span>
+                                        <span class="rme-control-value">5</span>
+                                    </div>
+                                    <input class="rme-range-slider__range" type="range" min="-50" max="50" step="1"
+                                        value="5" oninput="shadowOffSetXChanged(this)">
+                                </div>
+
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Offset Y</span>
+                                        <span class="rme-control-value">5</span>
+                                    </div>
+                                    <input class="rme-range-slider__range" type="range" min="-50" max="50" step="1"
+                                        value="5" oninput="shadowOffSetYChanged(this)">
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="buttonDiv">
+                            <button onclick="SaveImage()">Download Image</button>
+                        </div>
+                    </div>
+
+                    <div id="fourth" class="tab-pane fade">
+                        <div class="contentDiv">
+                            <h3>Background Image</h3>
+
+                            <div class="uploadImage">
+                                <img src="https://removal.ai/wp-content/uploads/rme/upload-image.png">
+                                <input type="file" id="imageInput">
+                            </div>
+
+                            <div class="splitter"></div>
+
+                            <div class="">
+                                
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Alpha</span>
+                                        <span class="rme-control-value" id="bgalpha-val">1</span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="bgalpha" type="range" min="0" max="1" step="0.05" value="0">
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Red</span>
+                                        <span class="rme-control-value" id="bgred-val"></span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="bgred" type="range" min="0" max="256" step="1" value="150">
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Green</span>
+                                        <span class="rme-control-value" id="bggreen-val">0</span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="bggreen" type="range" min="0" max="256" step="1" value="150">
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Blue</span>
+                                        <span class="rme-control-value" id="bgblue-val">0</span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="bgblue" type="range" min="0" max="256" step="1" value="150">
+                                </div>
+                                <div class="splitter"></div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Brightness</span>
+                                        <span class="rme-control-value" id="bgbrightness-val">0</span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="bgbrightness" type="range" min="-0.5" max=".5" step="0.01" value="0">
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Enhance</span>
+                                        <span class="rme-control-value" id="bgenhance-val">0</span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="bgenhance" type="range" min="0" max="1" step="0.01" value="0">
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Cartoonize</span>
+                                        <span class="rme-control-value" id="bglevels-val">0</span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="bglevels" type="range" min="0" max="1" step="0.01" value="1">
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Luminance</span>
+                                        <span class="rme-control-value" id="bgluminance-val">0</span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="bgluminance" type="range" min="-0.5" max=".5" step="0.01" value="0">
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Saturation</span>
+                                        <span class="rme-control-value" id="bgsaturation-val">0</span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="bgsaturation" type="range" min="-1" max="1" step="0.01" value="0">
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Exposure</span>
+                                        <span class="rme-control-value" id="bgvalue-val">0</span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="bgvalue" type="range" min="-1" max="1" step="0.01" value="0">
+                                </div>
+                                <div class="splitter"></div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Hue</span>
+                                        <span class="rme-control-value" id="bghue-val">0</span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="bghue" type="range" min="0" max="359" step="1" value="0">
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Blur</span>
+                                        <span class="rme-control-value" id="bgblurRadius-val">0</span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="bgblurRadius" type="range" min="0" max="20" step=".5" value="0">
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Noise</span>
+                                        <span class="rme-control-value" id="bgnoise-val">0</span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="bgnoise" id="bgnoise" type="range" min="0" max="2" step="0.01" value="0">
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Pixelate</span>
+                                        <span class="rme-control-value" id="bgpixelSize-val">0</span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="bgpixelSize" type="range" min=".1" max="10" step="0.1" value=".1">
+                                </div>
+                            </div>
+
+                            <div class="splitter"></div>
+
+                            <div class="background-image-list">
+                                <div class="rme-control background-image--item" onclick="setBgImage('./Images/bg1.jpg')">
+                                    <img src="./Images/bg1.jpg">
+                                </div>
+                                <div class="rme-control background-image--item" onclick="setBgImage('./Images/bg2.jpg')">
+                                    <img src="./Images/bg2.jpg">
+                                </div>
+                                <div class="rme-control background-image--item" onclick="setBgImage('./Images/bg3.jpg')">
+                                    <img src="./Images/bg3.jpg">
+                                </div>
+                                <div class="rme-control background-image--item" onclick="setBgImage('./Images/bg4.jpg')">
+                                    <img src="./Images/bg4.jpg">
+                                </div>
+                                <div class="rme-control background-image--item" onclick="setBgImage('./Images/bg5.jpg')">
+                                    <img src="./Images/bg5.jpg">
+                                </div>
+                                <div class="rme-control background-image--item" onclick="setBgImage('./Images/bg6.jpg')">
+                                    <img src="./Images/bg6.jpg">
+                                </div>
+                                <div class="rme-control background-image--item" onclick="setBgImage('./Images/bg7.jpg')">
+                                    <img src="./Images/bg7.jpg">
+                                </div>
+                                <div class="rme-control background-image--item" onclick="setBgImage('./Images/bg8.jpg')">
+                                    <img src="./Images/bg8.jpg">
+                                </div>
+                                <div class="rme-control background-image--item" onclick="setBgImage('./Images/bg9.jpg')">
+                                    <img src="./Images/bg9.jpg">
+                                </div>
+                                <div class="rme-control background-image--item" onclick="setBgImage('./Images/bg10.jpg')">
+                                    <img src="./Images/bg10.jpg">
+                                </div>
+                                <div class="rme-control background-image--item" onclick="setBgImage('./Images/bg11.jpg')">
+                                    <img src="./Images/bg11.jpg">
+                                </div>
+                                <div class="rme-control background-image--item" onclick="setBgImage('./Images/bg12.jpg')">
+                                    <img src="./Images/bg12.jpg">
+                                </div>
+                                <div class="rme-control background-image--item" onclick="setBgImage('./Images/bg13.jpg')">
+                                    <img src="./Images/bg13.jpg">
+                                </div>
+                                <div class="rme-control background-image--item" onclick="setBgImage('./Images/bg14.jpg')">
+                                    <img src="./Images/bg14.jpg">
+                                </div>
+                                <div class="rme-control background-image--item" onclick="setBgImage('./Images/bg15.jpg')">
+                                    <img src="./Images/bg15.jpg">
+                                </div>
+                                <div class="rme-control background-image--item" onclick="setBgImage('./Images/bg16.jpg')">
+                                    <img src="./Images/bg16.jpg">
+                                </div>
+                                <div class="rme-control background-image--item" onclick="setBgImage('./Images/bg17.jpg')">
+                                    <img src="./Images/bg17.jpg">
+                                </div>
+                                <div class="rme-control background-image--item" onclick="setBgImage('./Images/bg18.jpg')">
+                                    <img src="./Images/bg18.jpg">
+                                </div>
+                                <div class="rme-control background-image--item" onclick="setBgImage('./Images/bg19.jpg')">
+                                    <img src="./Images/bg19.jpg">
+                                </div>
+                                <div class="rme-control background-image--item" onclick="setBgImage('./Images/bg20.jpg')">
+                                    <img src="./Images/bg20.jpg">
+                                </div>
+                                <div class="rme-control background-image--item" onclick="setBgImage('./Images/bg21.jpg')">
+                                    <img src="./Images/bg21.jpg">
+                                </div>
+                                <div class="rme-control background-image--item" onclick="setBgImage('./Images/bg22.jpg')">
+                                    <img src="./Images/bg22.jpg">
+                                </div>
+                                <div class="rme-control background-image--item" onclick="setBgImage('./Images/bg23.jpg')">
+                                    <img src="./Images/bg23.jpg">
+                                </div>
+                                <div class="rme-control background-image--item" onclick="setBgImage('./Images/bg24.jpg')">
+                                    <img src="./Images/bg24.jpg">
+                                </div>
+                                <div class="rme-control background-image--item" onclick="setBgImage('./Images/bg25.jpg')">
+                                    <img src="./Images/bg25.jpg">
+                                </div>
+                                <div class="rme-control background-image--item" onclick="setBgImage('./Images/bg26.jpg')">
+                                    <img src="./Images/bg26.jpg">
+                                </div>
+                                <div class="rme-control background-image--item" onclick="setBgImage('./Images/bg27.jpg')">
+                                    <img src="./Images/bg27.jpg">
+                                </div>
+                                <div class="rme-control background-image--item" onclick="setBgImage('./Images/bg28.jpg')">
+                                    <img src="./Images/bg28.jpg">
+                                </div>
+                                <div class="rme-control background-image--item" onclick="setBgImage('./Images/bg29.jpg')">
+                                    <img src="./Images/bg29.jpg">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="buttonDiv">
+                            <button onclick="SaveImage()">Download Image</button>
+                        </div>
+                    </div>
+
+                    <div id="fifth" class="tab-pane fade">
+                        <div class="contentDiv">
+                            <h3>Background Color</h3>
+
+                            <div class="ColorDiv"
+                                style="background: url(&quot;https://removal.ai/wp-content/uploads/rme/transparent-bg.png&quot;);">
+                            </div>
+                            <div class="ColorDiv" onclick="changeColor('#FFFFFF')" style="background-color: rgb(255, 255, 255);"></div>
+                            <div class="ColorDiv" onclick="changeColor('#F44336')" style="background-color: rgb(244, 67, 54);"></div>
+                            <div class="ColorDiv" onclick="changeColor('#E91E63')" style="background-color: rgb(233, 30, 99);"></div>
+                            <div class="ColorDiv" onclick="changeColor('#9C27B0')" style="background-color: rgb(156, 39, 176);"></div>
+                            <div class="ColorDiv" onclick="changeColor('#673AB7')" style="background-color: rgb(103, 58, 183);"></div>
+                            <div class="ColorDiv" onclick="changeColor('#3F51B5')" style="background-color: rgb(63, 81, 181);"></div>
+                            <div class="ColorDiv" onclick="changeColor('#2196F3')" style="background-color: rgb(33, 150, 243);"></div>
+                            <div class="ColorDiv" onclick="changeColor('#03A9F4')" style="background-color: rgb(3, 169, 244);"></div>
+                            <div class="ColorDiv" onclick="changeColor('#00BCD4')" style="background-color: rgb(0, 188, 212);"></div>
+                            <div class="ColorDiv" onclick="changeColor('#4CAF50')" style="background-color: rgb(0, 150, 136);"></div>
+                            <div class="ColorDiv" onclick="changeColor('#8BC34A')" style="background-color: rgb(76, 175, 80);"></div>
+                            <div class="ColorDiv" onclick="changeColor('#CDDC39')" style="background-color: rgb(139, 195, 74);"></div>
+                            <div class="ColorDiv" onclick="changeColor('#FFEB3B')" style="background-color: rgb(205, 220, 57);"></div>
+                            <div class="ColorDiv" onclick="changeColor('#FFEB3B')" style="background-color: rgb(255, 235, 59);"></div>
+                            <div class="ColorDiv" onclick="changeColor('#FF9800')" style="background-color: rgb(255, 152, 0);"></div>
+                            <div class="ColorDiv" onclick="changeColor('#FF5722')" style="background-color: rgb(255, 87, 34);"></div>
+                            <div class="ColorDiv" onclick="changeColor('#795548')" style="background-color: rgb(121, 85, 72);"></div>
+                            <div class="ColorDiv" onclick="changeColor('#9E9E9E')" style="background-color: rgb(158, 158, 158);"></div>
+                            <div class="ColorDiv" onclick="changeColor('#607D8B')" style="background-color: rgb(96, 125, 139);"></div>
+                            <div class="ColorDiv" onclick="changeColor('#000000')" style="background-color: rgb(0, 0, 0);"></div>
+                            <div class="splitter"></div>
+                            <span class="customHead">Custom Background Color</span>
+                            <div class="color-picker">
+                                <div class="color-picker--control">
+                                    <div class="color-picker--icon">
+                                        <div class="pointer color-picker--color"
+                                            style="background-color: rgb(255, 255, 255); height: 100%;">
+                                            <input type="color" oninput="changeColor(this.value)">
+                                        </div>
+                                    </div>
+                                    <span id="color_code"></span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="buttonDiv">
+                            <button  onclick="SaveImage()">Download Image</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="imageView">
+                <div class="ImageMain">
+                    <div id="container" class="imageDiv bg-light mb-4"></div>
+                </div>
+            </div>
+
+            <div class="edit mobile tab-content">
+                <div id="onee" class="tab-pane fade">
+                    <div class="contentDiv">
+                        <h3>Custom size</h3>
+                        <div class="widthHeight">
+                            <input type="text" class="" id="width2">
+                            <span>x</span>
+                            <input type="text" class="" id="height2">
+                            <input type="button" onclick="setStageSize($('#width2').val(), $('#height2').val())" class="button" value="Change">
+                        </div>
+                        <div class="splitter"></div>
+                        <h3>Common Sizes</h3>
+
+                        <div class="template-item" onclick="setStageSize(851, 315)">
+                            <div class="template-image">
+                                <img src="./Images/first.svg">
+                            </div>
+                            <span>Facebook Cover</span>
+                            <span>851x315</span>
+                        </div>
+
+                        <div class="template-item" onclick="setStageSize(851, 315)">
+                            <div class="template-image">
+                                <img src="./Images/second.svg">
+                            </div>
+
+                            <span>Facebook Wall Post</span>
+                            <span>940x788</span>
+                        </div>
+
+                        <div class="template-item" onclick="setStageSize(564, 1200)">
+                            <div class="template-image">
+                                <img src="./Images/third.svg">
+                            </div>
+                            <span>Pinterest Tall Post</span>
+                            <span>564x1200</span>
+                        </div>
+
+
+                        <div class="template-item" onclick="setStageSize(1080, 1080)">
+                            <div class="template-image">
+                                <img src="./Images/fourth.svg">
+                            </div>
+                            <span>Instagram Post</span>
+                            <span>1080x1080</span>
+                        </div>
+
+                        <div class="template-item" onclick="setStageSize(2000, 2000)">
+                            <div class="template-image">
+                                <img src="./Images/fifth.svg">
+                            </div>
+                            <span>Shopify Product</span>
+                            <span>2000x2000</span>
+                        </div>
+
+                        <div class="template-item" onclick="setStageSize(1920, 1080)">
+                            <div class="template-image">
+                                <img src="./Images/fifth.svg">
+                            </div>
+                            <span>Shopify Banner</span>
+                            <span>1920x1080</span>
+                        </div>
+
+                    </div>
+
+                    <div class="buttonDiv">
+                        <button  onclick="SaveImage()">Download Image</button>
+                    </div>
+                </div>
+
+                <div id="secondd" class="tab-pane fade in active">
+                    <div class="contentDiv">
+                        <div class="eraseButtonDiv">
+                            
+                            <button class="startFour" style="margin-bottom: 10px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-braces" viewBox="0 0 16 16">
+                                    <path
+                                        d="M2.114 8.063V7.9c1.005-.102 1.497-.615 1.497-1.6V4.503c0-1.094.39-1.538 1.354-1.538h.273V2h-.376C3.25 2 2.49 2.759 2.49 4.352v1.524c0 1.094-.376 1.456-1.49 1.456v1.299c1.114 0 1.49.362 1.49 1.456v1.524c0 1.593.759 2.352 2.372 2.352h.376v-.964h-.273c-.964 0-1.354-.444-1.354-1.538V9.663c0-.984-.492-1.497-1.497-1.6zM13.886 7.9v.163c-1.005.103-1.497.616-1.497 1.6v1.798c0 1.094-.39 1.538-1.354 1.538h-.273v.964h.376c1.613 0 2.372-.759 2.372-2.352v-1.524c0-1.094.376-1.456 1.49-1.456V7.332c-1.114 0-1.49-.362-1.49-1.456V4.352C13.51 2.759 12.75 2 11.138 2h-.376v.964h.273c.964 0 1.354.444 1.354 1.538V6.3c0 .984.492 1.497 1.497 1.6z" />
+                                </svg>
+                            </button>
+                            <button class="startFour" style="margin-bottom: 10px;">
+                                <svg style="transform: rotate(90deg);" xmlns="http://www.w3.org/2000/svg" width="16"
+                                    height="16" fill="currentColor" class="bi bi-braces" viewBox="0 0 16 16">
+                                    <path
+                                        d="M2.114 8.063V7.9c1.005-.102 1.497-.615 1.497-1.6V4.503c0-1.094.39-1.538 1.354-1.538h.273V2h-.376C3.25 2 2.49 2.759 2.49 4.352v1.524c0 1.094-.376 1.456-1.49 1.456v1.299c1.114 0 1.49.362 1.49 1.456v1.524c0 1.593.759 2.352 2.372 2.352h.376v-.964h-.273c-.964 0-1.354-.444-1.354-1.538V9.663c0-.984-.492-1.497-1.497-1.6zM13.886 7.9v.163c-1.005.103-1.497.616-1.497 1.6v1.798c0 1.094-.39 1.538-1.354 1.538h-.273v.964h.376c1.613 0 2.372-.759 2.372-2.352v-1.524c0-1.094.376-1.456 1.49-1.456V7.332c-1.114 0-1.49-.362-1.49-1.456V4.352C13.51 2.759 12.75 2 11.138 2h-.376v.964h.273c.964 0 1.354.444 1.354 1.538V6.3c0 .984.492 1.497 1.497 1.6z" />
+                                </svg>
+                            </button>
+                            <button class="eraserButton" style="margin-bottom: 10px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-eraser-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M8.086 2.207a2 2 0 0 1 2.828 0l3.879 3.879a2 2 0 0 1 0 2.828l-5.5 5.5A2 2 0 0 1 7.879 15H5.12a2 2 0 0 1-1.414-.586l-2.5-2.5a2 2 0 0 1 0-2.828l6.879-6.879zm.66 11.34L3.453 8.254 1.914 9.793a1 1 0 0 0 0 1.414l2.5 2.5a1 1 0 0 0 .707.293H7.88a1 1 0 0 0 .707-.293l.16-.16z" />
+                                </svg> Eraser
+                            </button>
+                        </div>
+
+                        <div class="splitter"></div>
+
+                        <div class="imageViewSmall">
+                            <img id="showCutOut" alt="AI produced Cut Out">
+                        </div>
+
+                        <div class="splitter"></div>
+
+                        <div class="">
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Alpha</span>
+                                        <span class="rme-control-value" id="alpha-val"></span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="alpha" type="range" min="0" max="1" step="0.05" value="0">
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Red</span>
+                                        <span class="rme-control-value" id="red-val"></span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="red" type="range" min="0" max="256" step="1" value="150">
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Green</span>
+                                        <span class="rme-control-value" id="green-val"></span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="green" type="range" min="0" max="256" step="1" value="150">                            
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Blue</span>
+                                        <span class="rme-control-value" id="blue-val"></span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="blue" type="range" min="0" max="256" step="1" value="150">
+                                </div>
+                                <div class="splitter"></div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Brightness</span>
+                                        <span class="rme-control-value" id="brightness-val"></span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="brightness" type="range" min="-0.5" max=".5" step="0.01" value="0">
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Enhance</span>
+                                        <span class="rme-control-value" id="enhance-val"></span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="enhance" type="range" min="0" max="1" step="0.01" value="0">
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Cartoonize</span>
+                                        <span class="rme-control-value" id="levels-val"></span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="levels" type="range" min="0" max="1" step="0.01" value="1">
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Luminance</span>
+                                        <span class="rme-control-value" id="luminance-val"></span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="luminance" type="range" min="-0.5" max=".5" step="0.01" value="0">
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Saturation</span>
+                                        <span class="rme-control-value" id="saturation-val"></span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="saturation" type="range" min="-1" max="1" step="0.01" value="0">
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Exposure</span>
+                                        <span class="rme-control-value" id="value-val"></span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="value" type="range" min="-1" max="1" step="0.01" value="0">
+                                </div>
+                                <div class="splitter"></div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Hue</span>
+                                        <span class="rme-control-value" id="hue-val"></span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="hue" type="range" min="0" max="359" step="1" value="0">
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Blur</span>
+                                        <span class="rme-control-value" id="blurRadius-val"></span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="blurRadius" type="range" min="0" max="20" step=".5" value="0">
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Noise</span>
+                                        <span class="rme-control-value" id="noise-val"></span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="noise" type="range" min="0" max="2" step="0.01" value="0">
+                                </div>
+                                <div class="rme-range-slider">
+                                    <div class="rangeTitle">
+                                        <span>Pixelate</span>
+                                        <span class="rme-control-value" id="pixelSize-val"></span>
+                                    </div>
+                                    <input class="rme-range-slider__range" id="pixelSize" type="range" min=".1" max="10" step="0.1" value=".1">
+                                </div>
+                            </div>
+                    </div>
+
+                    <div class="buttonDiv">
+                        <button onclick="SaveImage()">Download Image</button>
+                    </div>
+                </div>
+
+                <div id="thirdd" class="tab-pane fade">
+                    <div class="contentDiv">
+                        <div class="text-item">
+                            <h2>Add HEADER</h2>
+                        </div>
+                        <div class="text-item">
+                            <h4>Add SUB HEADER</h4>
+                        </div>
+                        <div class="text-item">
+                            <p>Add body text</p>
+                        </div>
+
+                        <div class="splitter"></div>
+
+                        <div class="eraseButtonDiv">
+                            <button class="startFour" style="margin-bottom: 10px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-braces" viewBox="0 0 16 16">
+                                    <path
+                                        d="M2.114 8.063V7.9c1.005-.102 1.497-.615 1.497-1.6V4.503c0-1.094.39-1.538 1.354-1.538h.273V2h-.376C3.25 2 2.49 2.759 2.49 4.352v1.524c0 1.094-.376 1.456-1.49 1.456v1.299c1.114 0 1.49.362 1.49 1.456v1.524c0 1.593.759 2.352 2.372 2.352h.376v-.964h-.273c-.964 0-1.354-.444-1.354-1.538V9.663c0-.984-.492-1.497-1.497-1.6zM13.886 7.9v.163c-1.005.103-1.497.616-1.497 1.6v1.798c0 1.094-.39 1.538-1.354 1.538h-.273v.964h.376c1.613 0 2.372-.759 2.372-2.352v-1.524c0-1.094.376-1.456 1.49-1.456V7.332c-1.114 0-1.49-.362-1.49-1.456V4.352C13.51 2.759 12.75 2 11.138 2h-.376v.964h.273c.964 0 1.354.444 1.354 1.538V6.3c0 .984.492 1.497 1.497 1.6z" />
+                                </svg>
+                            </button>
+                            <button class="startFour deleteButton" style="margin-bottom: 10px;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                    class="bi bi-trash-fill" viewBox="0 0 16 16">
+                                    <path
+                                        d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
+                                </svg>
+                            </button>
+                        </div>
+
+                        <div class="splitter"></div>
+
+                        <div class="rme-text-control rme-control-disabled">
+                            <div class="rme-text-control--font-family text-left">
+                                <h3>Font</h3>
+                                <select class="scaleSelect" id="font_dropdown"  onchange="triggerChangeFont(this)">
+                                    <option value="Arial" style="font-family: Arial;">Arial</option>
+                                    <option value="Time New Roman" style="font-family: &quot;Time New Roman&quot;;">
+                                        Time New Roman</option>
+                                    <option value="Abril Fatface" style="font-family: &quot;Abril Fatface&quot;;">
+                                        Abril Fatface</option>
+                                    <option value="Alegreya" style="font-family: Alegreya;">Alegreya</option>
+                                    <option value="Archivo" style="font-family: Archivo;">Archivo</option>
+                                    <option value="Arvo" style="font-family: Arvo;">Arvo</option>
+                                    <option value="B612" style="font-family: B612;">B612</option>
+                                    <option value="Bangers" style="font-family: Bangers;">Bangers</option>
+                                    <option value="BioRhyme" style="font-family: BioRhyme;">BioRhyme</option>
+                                    <option value="Bungee Shade" style="font-family: &quot;Bungee Shade&quot;;">
+                                        Bungee Shade</option>
+                                    <option value="Cairo" style="font-family: Cairo;">Cairo</option>
+                                    <option value="Cardo" style="font-family: Cardo;">Cardo</option>
+                                    <option value="Comic Neue" style="font-family: &quot;Comic Neue&quot;;">Comic
+                                        Neue</option>
+                                    <option value="Concert One" style="font-family: &quot;Concert One&quot;;">
+                                        Concert One</option>
+                                    <option value="Cormorant" style="font-family: Cormorant;">Cormorant</option>
+                                    <option value="Crimson Text" style="font-family: &quot;Crimson Text&quot;;">
+                                        Crimson Text</option>
+                                    <option value="EB Garamond" style="font-family: &quot;EB Garamond&quot;;">EB
+                                        Garamond</option>
+                                    <option value="Exo 2">Exo 2</option>
+                                    <option value="Fira Sans" style="font-family: &quot;Fira Sans&quot;;">Fira Sans
+                                    </option>
+                                    <option value="Fjalla One" style="font-family: &quot;Fjalla One&quot;;">Fjalla
+                                        One</option>
+                                    <option value="Frank Ruhl Libre" style="font-family: &quot;Frank Ruhl Libre&quot;;">
+                                        Frank Ruhl Libre</option>
+                                    <option value="IBM Plex Serif" style="font-family: &quot;IBM Plex Serif&quot;;">
+                                        IBM Plex Serif</option>
+                                    <option value="Karla" style="font-family: Karla;">Karla</option>
+                                    <option value="Lato" style="font-family: Lato;">Lato</option>
+                                    <option value="Lora" style="font-family: Lora;">Lora</option>
+                                    <option value="Merriweather" style="font-family: Merriweather;">Merriweather
+                                    </option>
+                                    <option value="Montserrat" style="font-family: Montserrat;">Montserrat</option>
+                                    <option value="Noto Sans" style="font-family: &quot;Noto Sans&quot;;">Noto Sans
+                                    </option>
+                                    <option value="Nunito" style="font-family: Nunito;">Nunito</option>
+                                    <option value="Old Standard TT" style="font-family: &quot;Old Standard TT&quot;;">
+                                        Old Standard TT</option>
+                                    <option value="Open Sans" style="font-family: &quot;Open Sans&quot;;">Open Sans
+                                    </option>
+                                    <option value="Oswald" style="font-family: Oswald;">Oswald</option>
+                                    <option value="Oxygen" style="font-family: Oxygen;">Oxygen</option>
+                                    <option value="Playfair Display" style="font-family: &quot;Playfair Display&quot;;">
+                                        Playfair Display</option>
+                                    <option value="Poppins" style="font-family: Poppins;">Poppins</option>
+                                    <option value="PT Sans" style="font-family: &quot;PT Sans&quot;;">PT Sans
+                                    </option>
+                                    <option value="PT Serif" style="font-family: &quot;PT Serif&quot;;">PT Serif
+                                    </option>
+                                    <option value="Rakkas" style="font-family: Rakkas;">Rakkas</option>
+                                    <option value="Roboto" style="font-family: Roboto;">Roboto</option>
+                                    <option value="Rubik" style="font-family: Rubik;">Rubik</option>
+                                    <option value="Rubik Mono One" style="font-family: &quot;Rubik Mono One&quot;;">
+                                        Rubik Mono One</option>
+                                    <option value="Ruluko" style="font-family: Ruluko;">Ruluko</option>
+                                    <option value="Source Sans Pro" style="font-family: &quot;Source Sans Pro&quot;;">
+                                        Source Sans Pro</option>
+                                    <option value="Spectral" style="font-family: Spectral;">Spectral</option>
+                                    <option value="Titillium Web" style="font-family: &quot;Titillium Web&quot;;">
+                                        Titillium Web</option>
+                                    <option value="Ubuntu" style="font-family: Ubuntu;">Ubuntu</option>
+                                    <option value="Varela" style="font-family: Varela;">Varela</option>
+                                    <option value="Vollkorn" style="font-family: Vollkorn;">Vollkorn</option>
+                                    <option value="Work Sans" style="font-family: &quot;Work Sans&quot;;">Work Sans
+                                    </option>
+                                    <option value="Yatra One" style="font-family: &quot;Yatra One&quot;;">Yatra One
+                                    </option>
+                                </select>
+                            </div>
+
+                            <div class="fontStyleDiv">
+                                <div class="fontStyleDiv1">
+                                    <i class="fa fa-bold active" id="bold" onclick="changeStyle(this,'bold')"></i>
+                                    <i class="fa fa-italic" id="italic"  onclick="changeStyle(this,'italic')"></i>
+                                    <i class="fa fa-underline" onclick="changeStyle(this,'underline')"></i>
+                                </div>
+                                <div class="fontStyleDiv2">
+                                    <i class="fa fa-align-left"></i>
+                                    <i class="fa fa-align-center"></i>
+                                    <i class="fa fa-align-right"></i>
+                                </div>
+                            </div>
+
+                            <div class="rme-text-control--font-color" style="text-align: left;">
+                                <span
+                                    style="text-align: left; font-family: Roboto, sans-serif; font-size: 12px; line-height: 1.8;">Color</span>
+                                <div class="color-picker">
+                                    <div class="color-picker--control">
+                                        <div class="color-picker--icon">
+                                            <div class="pointer color-picker--color"
+                                                style="background-color: rgb(0, 0, 0); height: 100%;">
+                                                <input type="color" name="" id="">
+                                            </div>
+                                        </div>
+                                        <span>#000</span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="rme-range-slider">
+                                <div class="rangeTitle">
+                                    <span>Blur</span>
+                                    <span class="rme-control-value">3</span>
+                                </div>
+                                <input class="rme-range-slider__range" type="range" min="0" max="40" step="1" value="3">
+                            </div>
+
+                            <div class="rme-range-slider">
+                                <div class="rangeTitle">
+                                    <span>Opacity</span>
+                                    <span class="rme-control-value">0.5</span>
+                                </div>
+                                <input class="rme-range-slider__range" type="range" min="0.1" max="1" step="0.1"
+                                    value="0.5">
+                            </div>
+
+                            <div class="rme-range-slider">
+                                <div class="rangeTitle">
+                                    <span>Offset X</span>
+                                    <span class="rme-control-value">5</span>
+                                </div>
+                                <input class="rme-range-slider__range" type="range" min="-50" max="50" step="1"
+                                    value="5">
+                            </div>
+
+                            <div class="rme-range-slider">
+                                <div class="rangeTitle">
+                                    <span>Offset Y</span>
+                                    <span class="rme-control-value">5</span>
+                                </div>
+                                <input class="rme-range-slider__range" type="range" min="-50" max="50" step="1"
+                                    value="5">
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="buttonDiv">
+                        <button onclick="SaveImage()">Download Image</button>
+                    </div>
+                </div>
+
+                <div id="fourthh" class="tab-pane fade">
+                    <div class="contentDiv">
+                        <h3>Background Image</h3>
+
+                        <div class="uploadImage">
+                            <img src="https://removal.ai/wp-content/uploads/rme/upload-image.png">
+                            <input type="file" id="imageInput">
+                        </div>
+
+                        <div class="splitter"></div>
+
+                        <div class="">
+                            <div>
+                                <span class="rme-control-title">Scale To Fit</span>
+                                <select class="scaleSelect">
+                                    <option value="original">Custom</option>
+                                    <option value="full-width">Full Width</option>
+                                    <option value="full-height">Full Height</option>
+                                </select>
+                            </div>
+                            <div class="rme-range-slider">
+                                <div class="rangeTitle">
+                                    <span>Scale</span>
+                                    <span class="rme-control-value">1</span>
+                                </div>
+                                <input class="rme-range-slider__range" type="range" min="0" max="2" step="0.1"
+                                    value="1">
+                            </div>
+                            <div class="rme-range-slider">
+                                <div class="rangeTitle">
+                                    <span>Brightness</span>
+                                    <span class="rme-control-value">0</span>
+                                </div>
+                                <input class="rme-range-slider__range" type="range" min="-1" max="1" step="0.05"
+                                    value="0">
+                            </div>
+                            <div class="rme-range-slider">
+                                <div class="rangeTitle">
+                                    <span>Contrast</span>
+                                    <span class="rme-control-value">0</span>
+                                </div>
+                                <input class="rme-range-slider__range" type="range" min="-100" max="100" step="1"
+                                    value="0">
+                            </div>
+                            <div class="rme-range-slider">
+                                <div class="rangeTitle">
+                                    <span>Blur</span>
+                                    <span class="rme-control-value">0</span>
+                                </div>
+                                <input class="rme-range-slider__range" type="range" min="0" max="40" step="0.05"
+                                    value="0">
+                            </div>
+                        </div>
+
+                        <div class="splitter"></div>
+
+                        <div class="background-image-list">
+                            <div class="rme-control background-image--item">
+                                <img src="./Images/bg1.jpg">
+                            </div>
+                            <div class="rme-control background-image--item">
+                                <img src="./Images/bg2.jpg">
+                            </div>
+                            <div class="rme-control background-image--item">
+                                <img src="./Images/bg3.jpg">
+                            </div>
+                            <div class="rme-control background-image--item">
+                                <img src="./Images/bg4.jpg">
+                            </div>
+                            <div class="rme-control background-image--item">
+                                <img src="./Images/bg5.jpg">
+                            </div>
+                            <div class="rme-control background-image--item">
+                                <img src="./Images/bg6.jpg">
+                            </div>
+                            <div class="rme-control background-image--item">
+                                <img src="./Images/bg7.jpg">
+                            </div>
+                            <div class="rme-control background-image--item">
+                                <img src="./Images/bg8.jpg">
+                            </div>
+                            <div class="rme-control background-image--item">
+                                <img src="./Images/bg9.jpg">
+                            </div>
+                            <div class="rme-control background-image--item">
+                                <img src="./Images/bg10.jpg">
+                            </div>
+                            <div class="rme-control background-image--item">
+                                <img src="./Images/bg11.jpg">
+                            </div>
+                            <div class="rme-control background-image--item">
+                                <img src="./Images/bg12.jpg">
+                            </div>
+                            <div class="rme-control background-image--item">
+                                <img src="./Images/bg13.jpg">
+                            </div>
+                            <div class="rme-control background-image--item">
+                                <img src="./Images/bg14.jpg">
+                            </div>
+                            <div class="rme-control background-image--item">
+                                <img src="./Images/bg15.jpg">
+                            </div>
+                            <div class="rme-control background-image--item">
+                                <img src="./Images/bg16.jpg">
+                            </div>
+                            <div class="rme-control background-image--item">
+                                <img src="./Images/bg17.jpg">
+                            </div>
+                            <div class="rme-control background-image--item">
+                                <img src="./Images/bg18.jpg">
+                            </div>
+                            <div class="rme-control background-image--item">
+                                <img src="./Images/bg19.jpg">
+                            </div>
+                            <div class="rme-control background-image--item">
+                                <img src="./Images/bg20.jpg">
+                            </div>
+                            <div class="rme-control background-image--item">
+                                <img src="./Images/bg21.jpg">
+                            </div>
+                            <div class="rme-control background-image--item">
+                                <img src="./Images/bg22.jpg">
+                            </div>
+                            <div class="rme-control background-image--item">
+                                <img src="./Images/bg23.jpg">
+                            </div>
+                            <div class="rme-control background-image--item">
+                                <img src="./Images/bg24.jpg">
+                            </div>
+                            <div class="rme-control background-image--item">
+                                <img src="./Images/bg25.jpg">
+                            </div>
+                            <div class="rme-control background-image--item">
+                                <img src="./Images/bg26.jpg">
+                            </div>
+                            <div class="rme-control background-image--item">
+                                <img src="./Images/bg27.jpg">
+                            </div>
+                            <div class="rme-control background-image--item">
+                                <img src="./Images/bg28.jpg">
+                            </div>
+                            <div class="rme-control background-image--item">
+                                <img src="./Images/bg29.jpg">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="buttonDiv">
+                        <button onclick="SaveImage()">Download Image</button>
+                    </div>
+                </div>
+
+                <div id="fifthh" class="tab-pane fade">
+                    <div class="contentDiv">
+                        <h3>Background Color</h3>
+
+                        <div class="ColorDiv"
+                            style="background: url(&quot;https://removal.ai/wp-content/uploads/rme/transparent-bg.png&quot;);">
+                        </div>
+                        <div class="ColorDiv" style="background-color: rgb(255, 255, 255);"></div>
+                        <div class="ColorDiv" style="background-color: rgb(244, 67, 54);"></div>
+                        <div class="ColorDiv" style="background-color: rgb(233, 30, 99);"></div>
+                        <div class="ColorDiv" style="background-color: rgb(156, 39, 176);"></div>
+                        <div class="ColorDiv" style="background-color: rgb(103, 58, 183);"></div>
+                        <div class="ColorDiv" style="background-color: rgb(63, 81, 181);"></div>
+                        <div class="ColorDiv" style="background-color: rgb(33, 150, 243);"></div>
+                        <div class="ColorDiv" style="background-color: rgb(3, 169, 244);"></div>
+                        <div class="ColorDiv" style="background-color: rgb(0, 188, 212);"></div>
+                        <div class="ColorDiv" style="background-color: rgb(0, 150, 136);"></div>
+                        <div class="ColorDiv" style="background-color: rgb(76, 175, 80);"></div>
+                        <div class="ColorDiv" style="background-color: rgb(139, 195, 74);"></div>
+                        <div class="ColorDiv" style="background-color: rgb(205, 220, 57);"></div>
+                        <div class="ColorDiv" style="background-color: rgb(255, 235, 59);"></div>
+                        <div class="ColorDiv" style="background-color: rgb(255, 152, 0);"></div>
+                        <div class="ColorDiv" style="background-color: rgb(255, 87, 34);"></div>
+                        <div class="ColorDiv" style="background-color: rgb(121, 85, 72);"></div>
+                        <div class="ColorDiv" style="background-color: rgb(158, 158, 158);"></div>
+                        <div class="ColorDiv" style="background-color: rgb(96, 125, 139);"></div>
+                        <div class="ColorDiv" style="background-color: rgb(0, 0, 0);"></div>
+                        <div class="splitter"></div>
+                        <span class="customHead">Custom Background Color</span>
+                        <div class="color-picker">
+                            <div class="color-picker--control">
+                                <div class="color-picker--icon">
+                                    <div class="pointer color-picker--color"
+                                        style="background-color: rgb(255, 255, 255); height: 100%;">
+                                        <input type="color">
+                                    </div>
+                                </div>
+                                <span>#FFFFFF</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttonDiv">
+                        <button  onclick="SaveImage()">Download Image</button>
+                    </div>
+                </div>
+
+                <div id="sixthh" class="tab-pane fade">
+                    <div class="contentDiv">
+                        <div class="rightNav mobile" id="navNavv">
+                            <div>
+                                <h3>navigieren</h3>
+
+                                <div class="splitter"></div>
+
+                                <div class="mobileImageView">
+                                    <div class="imageViewRight"></div>
+
+                                    <div class="zoomerMain">
+                                        <button class="zoomOut" onclick="zoomOut()">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-dash" viewBox="0 0 16 16">
+                                                <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
+                                            </svg>
+                                        </button>
+                                        <p>100%</p>
+                                        <button class="zoomIn" onclick="zoomIn()">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="splitter"></div>
+
+                            <div>
+                                <h3>ebenen</h3>
+
+                                <div class="splitter"></div>
+
+                                <div class="popupDiv">
+                                    <div class="popupImage">
+                                        <div class="menuDots" id="threeDots0">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+                                            </svg>
+                                        </div>
+                                        <div class="twoIcons">
+                                            <i class="fas fa-lock"></i>
+                                            <i class="far fa-check-square"></i>
+                                        </div>
+                                    </div>
+                                    <div class="popupImage">
+                                        <div class="menuDots" id="threeDots1">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+                                            </svg>
+                                        </div>
+                                        <div class="twoIcons">
+                                            <i class="fas fa-lock"></i>
+                                            <i class="far fa-check-square"></i>
+                                        </div>
+                                    </div>
+                                    <div class="popupImage">
+                                        <div class="menuDots" id="threeDots2">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+                                            </svg>
+                                        </div>
+                                        <div class="twoIcons">
+                                            <i class="fas fa-lock"></i>
+                                            <i class="far fa-check-square"></i>
+                                        </div>
+                                    </div>
+                                    <div class="popupImage">
+                                        <div class="menuDots" id="threeDots3">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+                                            </svg>
+                                        </div>
+                                        <div class="twoIcons">
+                                            <i class="fas fa-lock"></i>
+                                            <i class="far fa-check-square"></i>
+                                        </div>
+                                    </div>
+                                    <div class="popupImage">
+                                        <div class="menuDots" id="threeDots4">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+                                            </svg>
+                                        </div>
+                                        <div class="twoIcons">
+                                            <i class="fas fa-lock"></i>
+                                            <i class="far fa-check-square"></i>
+                                        </div>
+                                    </div>
+                                    <div class="popupImage">
+                                        <div class="menuDots" id="threeDots5">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3zm5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3z" />
+                                            </svg>
+                                        </div>
+                                        <div class="twoIcons">
+                                            <i class="fas fa-lock"></i>
+                                            <i class="far fa-check-square"></i>
+                                        </div>
+                                    </div>
+                                    <div class="popUp" id="popUp">
+                                        <div class="closeIcon2" id="popupClose">
+                                            <i class="fas fa-times"></i>
+                                        </div>
+                                        <div style="width: 70%;">
+                                            <div class="inputDivMain">
+                                                <div class="inputDiv">
+                                                    <label>Name</label>
+                                                    <input type="text" placeholder="Hintergrund">
+                                                </div>
+                                                <div class="inputDiv">
+                                                    <label>Mischmodus</label>
+                                                    <select>
+                                                        <option value="original">Custom</option>
+                                                        <option value="full-width">Full Width</option>
+                                                        <option value="full-height">Full Height</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="rme-range-slider">
+                                                <div class="rangeTitle">
+                                                    <span>Transparenz</span>
+                                                    <span class="rme-control-value">100%</span>
+                                                </div>
+                                                <input class="rme-range-slider__range" type="range" min="0" max="100"
+                                                    step="1" value="100">
+                                            </div>
+
+                                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                <label class="btn btn-secondary active two">
+                                                    <input type="radio" name="options" id="option1" autocomplete="off"
+                                                        checked>
+                                                    FREIGEGEBEN
+                                                </label>
+                                                <label class="btn btn-secondary">
+                                                    <input type="radio" name="options" id="option3" autocomplete="off">
+                                                    GESPERRT
+                                                </label>
+                                            </div>
+                                            <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                                                <label class="btn btn-secondary active">
+                                                    <input type="radio" name="options" id="option1" autocomplete="off"
+                                                        checked> SICHTBAR
+                                                </label>
+                                                <label class="btn btn-secondary two">
+                                                    <input type="radio" name="options" id="option3" autocomplete="off">
+                                                    VERSTECKT
+                                                </label>
+                                            </div>
+                                        </div>
+
+                                        <div style="width: 30%;">
+                                            <ul class="icon-button-set pad-10" style="text-align: right">
+                                                <li id="layer-settings-duplicate" tooltip="Duplicate layer" flow="up">
+                                                    <img src="https://static-cdn.pixlr.com/img/icon/copy.svg"></li>
+                                                    
+                                                <li id="layer-settings-merge-flatten" tooltip="Flatten Image" flow="up">
+                                                    <img src="https://static-cdn.pixlr.com/img/icon/merge-flatten.svg">
+                                                </li>
+                                            </ul>
+                                            <ul class="icon-button-set pad-20" style="text-align: right">
+                                                <li id="layer-settings-delete" tooltip="Delete layer (DEL)" flow="up">
+                                                    <img src="https://static-cdn.pixlr.com/img/icon/delete.svg"></li>
+                                                <li id="layer-settings-merge-down" tooltip="Merge Down (CTRL+E)"
+                                                    flow="up">
+                                                    <img src="https://static-cdn.pixlr.com/img/icon/merge-down.svg">
+                                                </li>
+                                                <li id="layer-settings-merge-visible" tooltip="Merge Visible" flow="up">
+                                                    <img src="https://static-cdn.pixlr.com/img/icon/merge-visible.svg">
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="buttonDiv">
+                        <button  onclick="SaveImage()">Download Image</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="rightNav">
+                <h3>navigieren</h3>
+
+                <div class="splitter"></div>
+
+                <div class="imageViewRight"></div>
+
+                <div class="zoomerMain">
+                    <button class="zoomOut" onclick="zoomOut()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-dash" viewBox="0 0 16 16">
+                            <path d="M4 8a.5.5 0 0 1 .5-.5h7a.5.5 0 0 1 0 1h-7A.5.5 0 0 1 4 8z" />
+                        </svg>
+                    </button>
+                    <p>100%</p>
+                    <button class="zoomIn" onclick="zoomIn()">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-plus" viewBox="0 0 16 16">
+                            <path
+                                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
+                        </svg>
+                    </button>
+                </div>
+
+                <h3>ebenen</h3>
+                        <div class="splitter"></div>
+
+                <div id="layer-tab">
+                    
+                </div>
+                <div class="mt-4">
+                    <div class="add-image text-center" onclick="$('#add-imageLayer').click()">
+                        <svg style="color: white;margin-top:7px" xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="currentColor" class="bi bi-plus" viewBox="0 0 16 16">
+                            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"></path>
+                        </svg>
+                    </div>
+                    <input style="display: none;" type="file" id="add-imageLayer"  />
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src="tool.js"></script>
+<script>
+    $("#threeDots0").click(() => {
+        $("#popUp").classList.toggle("show")
+    })
+    $("#threeDots1").click(() => {
+        $("#popUp").classList.toggle("show")
+    })
+    $("#threeDots2").click(() => {
+        $("#popUp").classList.toggle("show")
+    })
+    $("#threeDots3").click(() => {
+        $("#popUp").classList.toggle("show")
+    })
+    $("threeDots4").click(() => {
+        $("#popUp").classList.toggle("show")
+    })
+    $("threeDots5").click(() => {
+        $("#popUp").classList.toggle("show")
+    })
+
+    $("threeDotsWeb").click(() => {
+        $("#popUpWeb").classList.toggle("show")
+    })
+
+    $("popupClose").click(()=>{
+        $("#popUp").classList.toggle("show")
+    })
+
+    $("#popupCloseWeb").click(()=>{
+        $("#popUpWeb").classList.toggle("show")
+    })
+    // $("openNavNav").addEventListener("click",()=>{
+    //     console.log($("navNavv").style.height)
+    //     if($("navNavv").style.height === "0px" || $("navNavv").style.height === ""){
+    //         $("navNavv").style.height = "auto"
+    //         $("navNavv").style.overflow = "visible"
+    //     }else{
+    //         $("navNavv").style.height = "0px"
+    //         $("navNavv").style.overflow = "hidden"
+    //     }
+    //     $("popUp").classList.toggle("show")
+    // })
+</script>
+
+</html>
